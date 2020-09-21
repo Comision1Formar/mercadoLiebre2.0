@@ -1,0 +1,64 @@
+@import "style.css";
+
+/*
+ - BANNER
+*/
+
+.banner img {
+    width: 100%;
+    display: none;
+}
+
+
+/*
+- PRODUCTOS
+*/
+
+section .contenido figure img {
+    width: 90%;
+}
+
+section article {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--color-grisClaro);
+    padding: 20px;
+    position: relative;
+    height: 150px;
+}
+
+section article span {
+    color: var(--color-verde);
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+section article i {
+    color: var(--color-verde);
+    background-color: white;
+    border: 1px solid var(--color-verde);
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    position: absolute;
+    top: -22px;
+    right: 20px;
+}
+
+/* --- VERSION PARA TABLET --- */
+
+@media(min-width:768px) {
+
+    .banner img {
+        display: block;
+    }
+}
+
+/* --- VERSION PARA ESCRITORIO --- */
+
+@media(min-width:1024px) {
+    section article h2 {
+        font-size: 1.9rem;
+    }
+}

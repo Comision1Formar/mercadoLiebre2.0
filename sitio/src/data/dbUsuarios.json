@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nombre": "Eric",
+        "apellido": "Mena",
+        "email": "menaericdaniel@gmail.com",
+        "avatar": "avatar-1599493391125.jpg",
+        "pass": "$2b$10$vYn1/fJcdJ/V5ip2TLKoRebFFHzHgRyZmdKktldP0eaTVgDxb0.4.",
+        "rol": "user"
+    },
+    {
+        "id": 2,
+        "nombre": "Carolina",
+        "apellido": "Barila",
+        "email": "carolina@barila.com",
+        "avatar": "avatar-1599664101844.jpg",
+        "pass": "$2b$10$ASI1dhMRpVmQuG6S6/3DQu.Nto1VVEaCdfFRhm2YXfqw/riXtjGTq",
+        "rol": "user"
+    }
+]

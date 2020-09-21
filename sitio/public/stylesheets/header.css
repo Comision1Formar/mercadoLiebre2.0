@@ -1,0 +1,137 @@
+
+
+/*
+- CABECERA
+*/
+
+header {
+    background-color: var(--color-amarillo);
+    padding: 20px
+}
+
+header .logo {
+    padding: 0px;
+    height: 34px;
+}
+
+header form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    /*background-color: white;
+    border: 1px solid var(--color-grisClaro);
+    border-radius: 5px;
+    padding: 0px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;*/
+}
+
+header form input {
+    border: solid 1px var(--color-grisClaro);
+    display: block;
+    width: 100%;
+    padding: 7px 35px 7px 7px;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 1.5em;
+    font-family: inherit;
+    /*background: none;
+    border: 0;
+    width: 85%;
+    margin: 5px 0px;
+    padding-right: 5px;
+    border-right: 2px solid var(--color-grisClaro);*/
+}
+
+header form input:focus,
+form button:focus {
+    outline: none;
+}
+
+header form button {
+    position: absolute;
+    right: 2px;
+    height: 60%;
+    background-color: white;
+    border: none;
+    border-left: solid 1px var(--color-grisClaro);
+    color: var(--color-grisOscuro);
+    cursor: pointer;
+    /*background: none;
+    border: 0;
+    border: var(--color-grisOscuro);
+    color: var(--color-grisOscuro);
+    padding: 0;
+    padding-left: 5px;*/
+}
+
+header .cuotas {
+    margin: 20px 0;
+    align-self: center;
+}
+
+
+/*
+OPCION PARA COLOCAR EL ICONO DESDE EL CSS DENTRO DE UN ELEMENTO (NO FUNCIONA CON TODOS LOS ICONOS)
+
+header a.cuotas::before {
+    content: '\f09d';
+    font-family: "Font Awesome\ 5 free";
+    margin-right: 5px;
+}
+*/
+
+header nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+header nav button.burger {
+    background-color: var(--color-azul);
+    border: none;
+    border-radius: 4px;
+    padding: 3px 15px;
+}
+
+
+/* cambio el aspecto cuando el boton tiene el foco*/
+
+header nav button.burger:focus {
+    outline: 1px solid white;
+}
+
+header nav button.burger i {
+    color: white;
+}
+
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+header .avatar{
+    object-fit: cover;
+    object-position: top;
+}
+@media(min-width:768px) {
+    /*header form input {
+        width: 92%;
+    }*/
+    header .cuotas {
+        margin: 0;
+        text-align: right;
+    }
+    header ul li {
+        justify-content: space-between;
+        padding-right: 12px;
+    }
+    header ul.usuario li:last-child {
+        padding-right: 0;
+    }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+
+    <body>
+
+
+
+        <%- include('partials/header') %>
+
+            <!--SECCIÓN: BANNER-->
+            <section class="banner ">
+                <img src="images/img-home-banner.jpg " alt=" ">
+            </section>
+
+            <!--SECCIONES: PRODUCTOS-->
+
+            <!--caja contendedora de bootstrap con padding superior e inferior de 5 (escala de boostrap)-->
+            <div class="container py-5">
+
+                <!--SECCIÓN: PRODUCTOS ULTIMA VISITA-->
+                <section>
+
+                    <!--caja que contiene todos los productos de la ultima visita-->
+                    <div class="row productos">
+
+                        <!--caja que contiene el titulo de la sección-->
+                        <div class="titulo col-12">
+                            <h2>
+                                Basado en tu última visita
+                            </h2>
+                        </div>
+                        <!--recorro los productos basados en la ultima visita con un forEach-->
+                        <% visitas.forEach(producto => { %>
+
+                            <!--caja de la grilla de bootstrap-->
+                            <div class="col-12 col-md-6 col-lg-3">
+
+                                <!--caja que muestra la información del producto-->
+                                <div class="contenido">
+
+                                    <!--ETIQUETA SEMANTICA-->
+                                    <figure>
+                                        <a href="./products/detail/<%= producto.id %> "><img src="/images/products/<%- producto.image %>  " alt=" ">
+                                    </a>
+                                    </figure>
+
+                                    <!--informacion-->
+                                    <article>
+                                        <!--precio-->
+                                        <h2>$
+                                            <%- (producto.price - producto.price * producto.discount / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                                        </h2>
+                                        <!--descuento-->
+                                        <% if (producto.discount != 0) { %>
+                                            <span><%- producto.discount %>% OFF</span>
+                                            <% } %>
+                                                <!--nombre del producto ??-->
+                                                <p>
+                                                    <%- producto.name %>
+                                                </p>
+                                                <!--icono de envío-->
+                                                <i class="fas fa-truck "></i>
+                                    </article>
+                                </div>
+                                <!--finaliza contenido-->
+
+                            </div>
+                            <!--finaliza caja de grilla de boostrap-->
+
+                            <% }) %>
+                    </div>
+                    <!--finaliza el div.row-->
+
+                </section>
+                <!--FINALIZA SECCIÓN ULTIMA VISITA-->
+
+                <!--SECCIÓN: PRODUCTOS OFERTAS-->
+                <section>
+
+                    <!--caja que contiene todos los productos de la ultima visita-->
+                    <div class="row productos">
+
+                        <!--caja que contiene el titulo de la sección-->
+                        <div class="titulo col-12">
+                            <h2>
+                                Ofertas de la semana
+                            </h2>
+                        </div>
+                        <!--recorro los productos basados en la ultima visita con un forEach-->
+                        <% ofertas.forEach(producto => { %>
+                            <!--caja de la grilla de bootstrap-->
+                            <div class="col-12 col-md-6 col-lg-3">
+
+                                <!--caja que muestra la información del producto-->
+                                <div class="contenido">
+
+                                    <!--ETIQUETA SEMANTICA-->
+                                    <figure>
+                                        <a href="./products/detail/<%= producto.id %> "><img src="/images/products/<%- producto.image %>  " alt=" "></a>
+                                    </figure>
+
+                                    <!--informacion-->
+                                    <article>
+                                        <!--precio-->
+                                        <h2>$
+                                            <%- (producto.price - producto.price * producto.discount / 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                                        </h2>
+                                        <!--descuento-->
+                                        <% if (producto.discount != 0) { %>
+                                            <span><%- producto.discount %>% OFF</span>
+                                            <% } %>
+                                                <!--nombre del producto ??-->
+                                                <p>
+                                                    <%- producto.name %>
+                                                </p>
+                                                <!--icono de envío-->
+                                                <i class="fas fa-truck "></i>
+                                    </article>
+                                </div>
+                                <!--finaliza contenido-->
+
+                            </div>
+                            <!--finaliza caja de grilla de boostrap-->
+                            <% }) %>
+                    </div>
+
+                    <!--finaliza el div.row-->
+                </section>
+                <!--FINALIZA SECCCIÓN OFERTAS-->
+
+            </div>
+
+            <%- include('partials/footer') %>
+    </body>
+
+</html>
