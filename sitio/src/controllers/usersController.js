@@ -106,7 +106,26 @@ module.exports = {
         }
     },
     updateProfile: function(req,res){
-        
+        db.Users.update(
+            {
+                fecha:req.body.fecha,
+                avatar:(req.files[0])?req.files[0].filename:req.session.user.avatar,
+                direccion:req.body.direccion.trim(),
+                ciudad:req.body.ciudad.trim(),
+                provincia:req.body.provincia.trim()
+            },
+            {
+                where:{
+                    id:req.params.id
+                }
+            }
+        )
+        .then(result => {
+             res.redirect('/users/profile')
+        })
+        .catch(err => {
+            console.log(err)
+        })
     },
     logout:function(req,res){
         req.session.destroy();
@@ -116,6 +135,23 @@ module.exports = {
         return res.redirect('/')
     },
     delete:function(req,res){
-
+        if(fs.existsSync(path.join(__dirname,'../../public/images/users'+req.session.user.avatar))){
+            fs.unlinkSync(path.join(__dirname,'../../public/images/users'+req.session.user.avatar))
+        }
+        req.session.destroy();
+        if(req.cookies.userMercadoLiebre){
+            res.cookie('userMercadoLiebre','',{maxAge:-1})
+        }
+        db.Users.destroy({
+            where:{
+                id:req.params.id
+            }
+        })
+        .then(result => {
+            res.redirect('/')
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 }
