@@ -87,15 +87,23 @@ module.exports = {
         }
     },
     profile:function(req,res){
-        res.render('userProfile',{
-            title: "Perfil de usuario",
-            productos:dbProductos.filter(producto=>{
-                return producto.category != "visited" && producto.category != "in-sale"
-            }),
-            css:"profile.css",
-            usuario:req.session.user
-
-        })
+        
+        if(req.session.user){
+            db.Users.findByPk(req.session.user.id)
+            .then(user => {
+                console.log(user)
+                res.render('userProfile', {
+                    title: "Perfil de usuario",
+                    css:"profile.css",
+                    usuario:user,
+                    productos: dbProductos.filter(producto => {
+                        return producto.category != "visited" & producto.category != "in-sale"
+                    })
+                })
+            })
+        }else{
+            res.redirect('/')
+        }
     },
     updateProfile: function(req,res){
         
