@@ -13,6 +13,10 @@ module.exports = (sequelize, dataTypes) => {
         },
         imagen:{
             type:dataTypes.STRING(45)
+        },
+        id_usuario:{
+            type:dataTypes.INTEGER(11),
+            allowNull:false
         }
     }
 

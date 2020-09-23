@@ -37,18 +37,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <ul class="menu navbar-nav mr-auto">
-                    <li>
-                        <a href=" ">Ofertas</a>
-                    </li>
-                    <li>
-                        <a href=" ">Tiendas Oficiales</a>
-                    </li>
-                    <li>
-                        <a href="/products/add">Vender</a>
-                    </li>
-                    <li>
-                        <a href=" ">Ayuda</a>
-                    </li>
+                   
+                    <li class="">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-store"></i>  Tiendas oficiales
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/stores/preRegister">Registrarse</a>
+                          <a class="dropdown-item" href="/stores/list">Ver tiendas</a>
+                        </div>
+                      </li>
+               
                 </ul>
 
                 <ul class="usuario navbar-nav">
@@ -70,11 +69,12 @@
                           </li>
                         
                     <% } else{ %>
-                        <li>
-                            <a href="/users/login">Ingresá <i class="fas fa-sign-in-alt "></i></a>
-                        </li>
+                    
                         <li>
                             <a href="/users/register">Creá tu cuenta <i class="far fa-address-card "></i></a>
+                        </li>
+                        <li>
+                            <a href="/users/login">Ingresá <i class="fas fa-sign-in-alt "></i></a>
                         </li>
                         
                     <% } %>

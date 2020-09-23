@@ -10,6 +10,7 @@ const path = require('path');
 
 module.exports = {
     register:function(req,res){
+        console.log(req.session.store)
         res.render('userRegister',{
             title:"Registro de Usuario",
             css: "index.css"
@@ -26,10 +27,14 @@ module.exports = {
             email:req.body.email.trim(),
             password:bcrypt.hashSync(req.body.pass.trim(),10),
             avatar:(req.files[0])?req.files[0].filename:"default.png",
-            rol:"user"
+            rol:(req.session.store)?req.session.store:"user"
         })
         .then(result => {
             console.log(result)
+            if(req.session.store){
+                req.session.store = result;
+                return res.redirect('/stores/register')
+            }
             return res.redirect('/users/login')
         })
         .catch(errores => {

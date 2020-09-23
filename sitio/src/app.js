@@ -10,7 +10,7 @@ const localCheckUser = require('./middlewares/localUserCheck');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+let storesRouter = require('./routes/stores');
 let productsRouter = require('./routes/products') //requiero el módulo que se hará cargo de la administración de las rutas relacionadas con productos
 
 var app = express();
@@ -30,7 +30,7 @@ app.use(localCheckUser);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/stores',storesRouter);
 app.use('/products', productsRouter) //añado la ruta principal de productos de la cual derivarán todas las demás
 
 // catch 404 and forward to error handler
